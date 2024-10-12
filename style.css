@@ -1,0 +1,698 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* General Navbar Styling */
+.navbar {
+    background-color: #800000; /* Warna merah khas Purwakarta */
+    color: #FFEB55; /* Warna teks kuning */
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-scroll {
+    background-color: #B8001F; /* Warna navbar saat discroll */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Bayangan lebih tebal */
+}
+
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo img {
+    width: 70px; /* Ukuran gambar logo (disarankan minimal 40px untuk mempertahankan detail) */
+    height: 70px; /* Sesuaikan tinggi agar proporsional */
+    border-radius: 50%; /* Membuat gambar berbentuk bulat */
+    object-fit: cover; /* Agar gambar tetap proporsional di dalam elemen bulat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan pada logo untuk efek kedalaman */
+    animation: bounce 3s ease forwards;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0); /* Posisi normal */
+    }
+    40% {
+        transform: translateY(-30px); /* Muncul ke atas */
+    }
+    60% {
+        transform: translateY(-15px); /* Muncul ke atas sedikit lagi */
+    }
+}
+
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li {
+    list-style-type: none;
+}
+
+.navbar .nav-links a {
+    color: #FFEB55;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    background-color: #FFEB55; /* Warna latar saat hover */
+    color: #800000; /* Mengubah warna teks saat hover */
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+/* Menu Toggle (for Mobile) */
+.menu-toggle {
+    display: none; /* Sembunyikan checkbox */
+}
+
+/* Menu Icon */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none; /* Sembunyikan menu pada perangkat mobile */
+        flex-direction: column;
+        background-color: #B8001F;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar .nav-links.active {
+        display: flex; /* Tampilkan menu saat checkbox tercentang */
+    }
+
+    .menu-toggle:checked + .menu-icon + .nav-links {
+        display: flex; /* Tampilkan menu saat checkbox dicentang */
+    }
+
+    .menu-icon {
+        display: block; /* Tampilkan ikon menu */
+    }
+}
+
+/* Header */
+header {
+    background-image: url('images/logopurwakartaistimewa.jpg');
+    background-size: 700px;
+    background-position: center;
+    color: #FFEB55;
+    font-family:'Poppins', sans-serif;
+    padding: 20px 0;
+    text-align: center;
+    position: relative; /* Untuk membuat overlay */
+    justify-content: flex-end;
+    height: 600px;
+}
+
+header .container{
+    position: relative;
+    z-index: 2; /* Agar teks berada di atas overlay */
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    text-align:left; /* Menyelaraskan teks ke kanan */
+    
+}
+
+/* Overlay semi-transparan */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Warna hitam dengan 50% transparansi */
+    z-index: 1; /* Agar berada di atas background tapi di bawah teks */
+}
+
+
+header h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 10px 0;
+    font-size: 5.5em;
+    transform: translateY(20px); /* Memindahkan teks sedikit ke bawah */
+    opacity: 0; /* Memulai dengan tidak terlihat */
+    animation: slideInUp 2s forwards 0.5s; /* Muncul dengan animasi slide */
+}
+
+header .highlight{
+    color: #B8001F;
+}
+
+header h2{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: 3.5em;
+}
+
+header p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 5px 0;
+    font-size: 1.2em;
+    transform: translateY(20px); /* Memindahkan teks sedikit ke bawah */
+    opacity: 0; /* Memulai dengan tidak terlihat */
+    animation: slideInUp 2s forwards 0.7s; /* Muncul dengan animasi slide */
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Teks di pojok kanan bawah */
+.special-message-link {
+    text-decoration: none; /* Menghilangkan garis bawah default pada link */
+}
+.special-message {
+    position: absolute;
+    bottom: 50px; /* Jarak dari bawah */
+    right: 450px; /* Jarak dari kanan */
+    font-size: 0.8em; /* Ukuran teks lebih besar */
+    color: #B8001F; /* Warna teks kuning */
+    background-color: #FFEB55; /* Latar belakang semi-transparan */
+    padding: 15px 25px; /* Ruang di sekitar teks */
+    border-radius: 50px; /* Sudut membulat */
+    text-align: right; /* Teks rata kanan */
+    z-index: 999; /* Memastikan berada di lapisan paling depan */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Efek timbul */
+    transform: translateZ(0); /* Memperbaiki rendering 3D */
+    transition: transform 0.3s ease; /* Animasi saat hover */
+    font-family: "Lucida Console", Monaco, monospace;
+    cursor: pointer;
+    display: block;
+    
+}
+.special-message:hover{
+    background-color: #eaeaea; /* Efek hover untuk memperjelas interaksi */
+}
+
+/* Efek timbul saat hover */
+.special-message:hover {
+    transform: scale(1.05); /* Zoom in sedikit untuk efek timbul */
+}
+
+/* Keyframes untuk animasi */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Muncul secara perlahan */
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(20px); /* Mulai sedikit di bawah */
+        opacity: 0; /* Mulai tidak terlihat */
+    }
+    100% {
+        transform: translateY(0); /* Kembali ke posisi asli */
+        opacity: 1; /* Muncul sepenuhnya */
+    }
+}
+
+/* Sections */
+section {
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+
+section h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 15px;
+    font-size: 2em;
+    color: #800000;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    margin-bottom: 15px;
+}
+
+ul li h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Audio*/
+div .music-player {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100px;
+    margin: 0;
+}
+
+/* Kontainer Pemutar Musik */
+.music-player {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 150px;
+    transition: transform 0.4s ease;
+    position: absolute;
+    top: 300px; /* Jarak dari bawah */
+    right: 50px; /* Jarak dari kanan */
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang semi-transparan */
+}
+
+.music-player:hover {
+    transform: translateY(-10px);
+}
+
+/* Gambar Album */
+.cover img {
+    width: 80%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Kontrol Pemutar Musik */
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+audio {
+    width: 100%;
+    outline: none;
+}
+
+::-webkit-media-controls-panel {
+    background-color: #800000; /* Warna panel audio */
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-volume-slider {
+    filter: invert(100%);
+}
+
+/* Informasi Track */
+.track-info h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #fff;
+}
+
+.track-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .music-player {
+        width: 90%;
+    }
+}
+
+/* Styling untuk bagian Produk */
+#products {
+    padding: 40px 0;
+}
+
+.product-container {
+    display: flex;
+    overflow-x: auto; /* Mengizinkan scroll horizontal */
+    padding: 10px 0; /* Padding atas dan bawah */
+    gap: 20px; /* Jarak antar kotak produk */
+}
+
+.product-card {
+    position: relative; /* Menyediakan konteks posisi untuk overlay */
+    flex: 0 0 auto; /* Menghindari flex item mengubah ukuran */
+    width: 300px; /* Lebar kotak produk */
+    background-color: #f9f9f9; /* Warna latar belakang kotak */
+    border: 1px solid #ccc; /* Garis batas kotak */
+    border-radius: 8px; /* Sudut melengkung */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan kotak */
+    text-align: center; /* Mengatur teks ke tengah */
+    padding: 10px; /* Padding di dalam kotak */
+    transition: transform 0.3s; /* Efek transisi saat hover */
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Sedikit memperbesar saat hover */
+}
+
+.product-card img {
+    width: 100%; /* Gambar mengisi seluruh kotak */
+    height: auto; /* Menjaga proporsi gambar */
+    border-radius: 8px; /* Sudut melengkung pada gambar */
+}
+
+.product-card h3 {
+    margin: 10px 0; /* Jarak antara judul dan deskripsi */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.product-card p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 14px; /* Ukuran font deskripsi */
+    color: #666; /* Warna font deskripsi */
+}
+
+.product-card .overlay p {
+    padding: 15px 25px; /* Ruang di sekitar teks */
+    color: #f4f4f4;
+}
+
+/* Overlay Styles */
+.overlay {
+    position: absolute; /* Overlay berada di atas produk */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang semi-transparan */
+    color: #fff; /* Warna teks overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Mengatur isi overlay ke tengah */
+    align-items: center; /* Mengatur isi overlay ke tengah */
+    opacity: 0; /* Sembunyikan overlay secara default */
+    transition: opacity 0.3s; /* Efek transisi saat muncul */
+}
+
+.product-card:hover .overlay {
+    opacity: 1; /* Tampilkan overlay saat hover */
+}
+
+/*elementator*/
+.elementor-section {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 20px; /* Tambahkan padding untuk section */
+    background-color: #f8f8f8; /* Warna latar belakang yang lembut */
+}
+
+.elementor-row {
+    display: flex; /* Mengatur kolom menjadi baris fleksibel */
+    gap: 20px; /* Memberikan jarak antar kolom */
+}
+
+.elementor-column {
+    flex: 1; /* Membuat kolom memiliki lebar yang sama */
+    padding: 15px; /* Padding dalam kolom */
+}
+.elementor-widget h4 {
+    display: flex;
+    align-items: center; /* Menjaga ikon dan teks tetap sejajar */
+}
+
+.elementor-widget h4 i {
+    margin-right: 10px; /* Memberikan jarak antara ikon dan teks */
+    color: #982B1C; /* Mengubah warna ikon sesuai dengan tema */
+    font-size: 40px; /* Mengatur ukuran ikon */
+}
+
+/*banner*/
+.banners-section {
+    padding: 40px 0;
+}
+
+.banner-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    height: 600px; /* Adjust as needed */
+}
+
+/* Banner besar di kiri */
+.large-banner {
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+    background-size: 400px;
+    background-position: center;
+    position: relative;
+}
+
+/* Banner kecil di kanan atas */
+.small-banner {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Banner konten */
+.banner-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.banner-content h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .banner-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        gap: 20px;
+    }
+
+    .large-banner {
+        grid-row: auto;
+        grid-column: auto;
+    }
+}
+
+/*Testimoni*/
+#testimonials {
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+#testimonials h2 {
+    font-size: 32px;
+    color: #800000;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.testimonial-item {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-item:hover {
+    transform: translateY(-10px);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.testimonial-item h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.testimonial-item .description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 20px;
+}
+
+.rating span {
+    margin-right: 2px;
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+    .testimonial-item {
+        display: inline-block;
+        width: 45%;
+        margin: 10px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .testimonial-item {
+        width: 30%;
+    }
+}
+
+
+/*lokasii*/
+#lokasi {
+    padding: 40px 20px;
+    text-align: center;
+    margin: 20px auto;
+    width: 100%; /* Lebar area contact */
+    max-width: 100%; /* Maksimal lebar */
+}
+
+#lokasi h2 {
+    font-family: 'Cambria', serif;
+    font-size: 40px;
+    color: #800000; /* Warna teks */
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#lokasi p{
+    font-family: 'cambria', serif;
+    color: #800000;
+    font-size: 20px;
+    text-align: left;
+}
+
+.map-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Rasio aspek 16:9 untuk responsif */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px; /* Membuat sudut peta melengkung */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; /* Menghapus border */
+}
+
+@media (max-width: 768px) {
+    #lokasi {
+        width: 90%; /* Lebar contact pada perangkat lebih kecil */
+    }
+}
+
+/* Kontak Section Styling */
+#contact {
+    background-image: url(images/kontak.png);
+    background-size:1000px;
+    width: 90%; /* Lebar 80% dari elemen induknya */
+    max-width: 8000px; /* Maksimal lebar 800px */
+    padding: 40px 20px;
+    background-color: #F6FB7A; /* Warna latar belakang yang lembut */
+    text-align:left; /* Teks rata tengah */
+    border-radius: 40px;
+    margin: 20px auto; /* Mengatur margin otomatis agar elemen berada di tengah */
+}
+
+.contact-list {
+    list-style: none; /* Menghapus bullet point */
+    padding: 0;
+    display: flex;
+    justify-content:left; /* Rata tengah secara horizontal */
+    gap: 30px; /* Jarak antar item */
+}
+
+.contact-list li {
+    transition: transform 0.3s; /* Transisi saat hover */
+    
+}
+
+.contact-list li:hover {
+    transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+.contact-icon {
+    width: 40px; /* Ukuran ikon */
+    height: 40px; /* Ukuran ikon */
+    vertical-align:middle; /* Penempatan vertikal ikon */
+
+}
+
+.contact-list a {
+    text-decoration: none; /* Menghapus garis bawah */
+    color: #800000; /* Warna teks */
+    font-size: 20px; /* Ukuran font */
+    display: flex;
+    align-items: center; /* Rata tengah ikon dan teks */
+    transition: color 0.3s; /* Transisi warna teks */
+}
+
+.contact-list a:hover {
+    color: #B8001F; /* Warna teks saat hover */
+}
+
+/* Footer */
+footer {
+    background: #800000;
+    color: #FFEB55;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    font-size: 1em;
+}
