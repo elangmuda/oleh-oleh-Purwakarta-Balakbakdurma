@@ -13,10 +13,11 @@ body {
 }
 
 .container {
-    max-width: 100%;
+    width: 100%;
     margin: auto;
     overflow: hidden;
-    
+    max-width: 1200px;
+    min-width: 320px;
 }
 
 /* General Navbar Styling */
@@ -43,9 +44,9 @@ body {
     align-items: center;
 }
 
-.navbar .logo img {
-    width: 70px; /* Ukuran gambar logo (disarankan minimal 40px untuk mempertahankan detail) */
-    height: 70px; /* Sesuaikan tinggi agar proporsional */
+.navbar-brand img {
+    width: 50px; /* Ukuran gambar logo (disarankan minimal 40px untuk mempertahankan detail) */
+    height: 50px; /* Sesuaikan tinggi agar proporsional */
     border-radius: 50%; /* Membuat gambar berbentuk bulat */
     object-fit: cover; /* Agar gambar tetap proporsional di dalam elemen bulat */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan pada logo untuk efek kedalaman */
@@ -122,7 +123,6 @@ body {
 
     .menu-icon {
         display: block; /* Tampilkan ikon menu */
-        font-size: 30px; /* Besarkan ukuran ikon */
     }
 }
 
@@ -165,13 +165,13 @@ header::before {
 header h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     margin: 10px 0;
-    font-size: 5.5em;
+    display: 5.5em;
     transform: translateY(20px); /* Memindahkan teks sedikit ke bawah */
     opacity: 0; /* Memulai dengan tidak terlihat */
     animation: slideInUp 2s forwards 0.5s; /* Muncul dengan animasi slide */
 }
 
-header .highlight{
+header .highlight {
     color: #B8001F;
 }
 
@@ -242,6 +242,40 @@ header a {
     }
 }
 
+/* Styling untuk Flashscreen */
+.flashscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #800000; /* Warna latar belakang flashscreen */
+    color: #FFEB55; /* Warna teks flashscreen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeOut 3s ease forwards; /* Mengatur animasi menghilang */
+    font-family: 'Cambria', serif;
+}
+
+.flashscreen h1 {
+    font-size: 100px;
+    text-align: center;
+    animation: scaleUp 1s ease-in-out infinite alternate;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
 /* Sections */
 section {
     padding: 20px 0;
@@ -267,80 +301,6 @@ ul li {
 ul li h3 {
     font-size: 1.5em;
     color: #333;
-}
-
-/* Audio*/
-div .music-player {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:100px;
-    margin: 0;
-}
-
-/* Kontainer Pemutar Musik */
-.music-player {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 150px;
-    transition: transform 0.4s ease;
-    position: absolute;
-    top: 300px; /* Jarak dari bawah */
-    right: 50px; /* Jarak dari kanan */
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang semi-transparan */
-}
-
-.music-player:hover {
-    transform: translateY(-10px);
-}
-
-/* Gambar Album */
-.cover img {
-    width: 80%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-/* Kontrol Pemutar Musik */
-.controls {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-audio {
-    width: 100%;
-    outline: none;
-}
-
-::-webkit-media-controls-panel {
-    background-color: #800000; /* Warna panel audio */
-}
-
-audio::-webkit-media-controls-play-button,
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display,
-audio::-webkit-media-controls-timeline,
-audio::-webkit-media-controls-volume-slider {
-    filter: invert(100%);
-}
-
-/* Informasi Track */
-.track-info h3 {
-    font-size: 18px;
-    margin: 0;
-    color: #fff;
-}
-
-.track-info p {
-    font-size: 14px;
-    color: #555;
 }
 
 /* Responsif */
