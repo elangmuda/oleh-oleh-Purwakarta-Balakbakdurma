@@ -133,11 +133,11 @@ header {
     background-position: center;
     color: #FFEB55;
     font-family:'Poppins', sans-serif;
-    padding: 20px 0;
+    padding: 20px 10;
     text-align: center;
     position: relative; /* Untuk membuat overlay */
     justify-content: flex-end;
-    height: 600px;
+    height: 500px;
 }
 
 header .container{
@@ -199,22 +199,20 @@ header a {
     text-decoration: none; /* Menghilangkan garis bawah default pada link */
 }
 .special-message {
-    position: absolute;
-    bottom: 50px; /* Jarak dari bawah */
-    right: 450px; /* Jarak dari kanan */
+    position: relative;
     font-size: 0.8em; /* Ukuran teks lebih besar */
     color: #B8001F; /* Warna teks kuning */
     background-color: #FFEB55; /* Latar belakang semi-transparan */
     padding: 15px 25px; /* Ruang di sekitar teks */
     border-radius: 50px; /* Sudut membulat */
-    text-align: right; /* Teks rata kanan */
+    text-align: center; /* Teks rata kanan */
     z-index: 999; /* Memastikan berada di lapisan paling depan */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Efek timbul */
     transform: translateZ(0); /* Memperbaiki rendering 3D */
     transition: transform 0.3s ease; /* Animasi saat hover */
     font-family: "Lucida Console", Monaco, monospace;
     cursor: pointer;
-    display: block;
+    display: inline-block;
     
 }
 .special-message:hover{
