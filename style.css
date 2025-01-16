@@ -129,7 +129,7 @@ body {
 /* Header */
 header {
     background-image: url('images/logopurwakartaistimewa.jpg');
-    background-size: 700px;
+    background-size: contain;
     background-position: center;
     color: #FFEB55;
     font-family:'Poppins', sans-serif;
